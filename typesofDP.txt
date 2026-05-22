@@ -1,0 +1,90 @@
+                             Part 1 — Creational patterns
+1 Singleton -: Ek instance, globally accessible, baar baar new nahi.
+2. Factory method -- "Kaunsa object banao" ka decision factory pe chhod do.
+
+3. Abstract factory-Concept: Related objects ka ek poora family banao bina concrete classes specify kiye.
+                               Poori ek family of related objects ek saath swap karo.
+4. Builder-Tum step by step customize karte ho, aur last mein build() karte ho.
+           Concept: Complex object ko step-by-step construct karo. Same construction process, alag alag results.
+5. Prototype-Concept: Existing object ko clone karo, modifications karo. Naya banana expensive ho to copy se karo.
+                     Object copy karo, scratch se mat banao.
+
+
+                            Part 2 — Structural patterns
+Yeh patterns batate hain ki objects aur classes ko kaise arrange/combine karo — taaki bade structures bana sako without tightly coupling kiye.
+7 patterns hain is category mein:
+1. Adapter- Concept: Do incompatible interfaces ko compatible banao bina original code change kiye.
+                   Purana code, naye interface se chalao — bina tod-phod ke.
+2. Decorator - Concept: Object ko wrap karo extra functionality add karne ke liye, bina original class modify kiye.
+      Pro-----Runtime pe behavior add/remove 
+           single Responsibility maintain
+          Composable
+     cons--------Bahut nested layers ho sakti hainSingle 
+                 Debugging tricky
+                  Order matter karta hai
+
+
+ Kisi bhi object pe extra behavior wrap karo — onion layers ki tarah.-
+
+3. Proxy ------------Concept: Ek object ke aage ek surrogate/placeholder rakho — access control, caching, logging ke liye
+                               Real object ke aage ek gatekeeper rakho — caching, auth, logging ke liye.
+
+4. Facade------------Concept: Complex subsystems ke upar ek simple interface provide karo.
+                                : Complex system ko ek simple play() button ke peeche chhupa do.
+5. Composite----------Concept: Individual objects aur groups ko uniformly treat karo — tree structure.
+                                   Single item aur group of items — dono ko same way se treat karo.
+6. Bridge------------Analogy: Remote control aur TV alag hain. Remote ka interface fix hai — usse Sony TV bhi chal sakta hai, Samsung bhi.                 Dono                                      independently evolve ho sakte hain.
+                                       Concept: Abstraction aur implementation ko alag karo taaki dono independently change ho sakein.
+                                      "Kya karna hai" aur "kaise karna hai" ko alag rakho — dono swappable.
+
+7. Flyweight--------------Concept: Shared state (intrinsic) ko alag rakho unique state (extrinsic) se — memory optimize karo.
+                                      Common shared data ek jagah rakho, sab objects share karein — RAM bachao.
+
+
+                                     Part 3 — Behavioral patterns
+
+ Yeh patterns batate hain ki objects aapas mein kaise communicate aur collaborate karein — responsibility kaise divide ho, data kaise flow kare.
+
+1. Observer---------- Analogy: YouTube subscribe — jab bhi channel pe video aaye, tumhe notification milti hai. Tum observer ho, channel   
+                                                     subject hai.
+                              Concept: Ek object (subject) ka state change ho to sare registered observers ko automatically notify karo.
+                             eg- eventemitter.
+                            Ek event pe bahut saari reactions — sab loosely connected.
+2. Mediator------------Analogy: Air traffic control — planes seedha ek dusre se baat nahi karte. Sab ATC se baat karte hain, ATC coordinate     
+                                       karta hai.
+                                   Concept: Objects ko directly ek dusre se communicate karne ki jagah ek mediator ke through baat karwao.
+                                     Sab ek central coordinator se baat karein — seedha ek dusre se nahi
+3. Chain of Responsibility-----------Analogy: Customer support — pehle chatbot, phir junior agent, phir senior agent, phir manager. 
+                                                      Request tab tak aage jaati hai jab tak koi handle na kare.
+                                                        Concept: Request ko handlers ki ek chain se pass karo — jo bhi handle kar sake kare, baaki aage bheje.
+                                                        Middleware pipeline — Express.js ka next() yehi pattern hai.
+4. Command--------Analogy: Restaurant mein waiter order likhta hai (command object). Abhi execute nahi hota — kitchen baad mein 
+                                                banata hai. Order cancel bhi ho sakta hai, ya undo.
+                                     Concept: Ek action ko object mein encapsulate karo — queue karo, undo karo, log karo.
+                                             Action ko object banao — execute later, undo, queue — sab possible.
+5. Strategy----------Analogy: Navigation app — same destination, alag routes: fastest, shortest, avoid tolls. Algorithm badlo, destination 
+                                                same rahe.
+                                      Concept: Algorithm ko interchangeable banao — runtime pe swap karo bina client code change kiye.
+                                    "Kaise karna hai" ko swap karo — "kya karna hai" same rahe.
+6. State---------Analogy: Traffic light — Red pe ruko, Green pe chalo, Yellow pe slow karo. Same light, alag state = alag behavior.
+                                            Concept: Object ka behavior change ho jab uski internal state change ho — jaise alag class ho gayi ho.
+                                            State change hone pe behavior automatically change ho — no giant if/else.
+7. Template Method------------Analogy: Ghar banana — foundation → walls → roof → interior. Steps same, lekin interior har ghar ka alag. 
+                                                    Base class steps define kare, subclass specific steps fill kare.
+                                                    Concept: Algorithm ka skeleton parent mein define karo, kuch steps subclass pe chhod do.
+                                                Parent algorithm fix kare, subclass kuch steps override kare.
+8. Memento----------Analogy: Game ka save point — jab chaho undo karo, pehle wali state wapas load karo.
+                                       Concept: Object ki state ko capture karo (snapshot) aur baad mein restore karo — bina internal details expose kiye.
+                                   Object ki state ka snapshot lo, jab chaho restore karo — Ctrl+Z.
+9. Iterator---------Analogy: Playlist — next song, previous song. Tumhe pata nahi playlist internally array hai ya linked list — bas next()      
+                               chahiye.
+                         Concept: Collection ke internal structure expose kiye bina sequentially traverse karo.
+                             Kisi bhi collection ko uniformly traverse karo — implementation hidden.
+10. Visitor---------Concept: Existing classes change kiye bina unpe naye operations add karo.
+11. Interpreter-------- Concept: Ek simple language ya grammar define karo, phir usse interpret karo.
+                              Chhoti language banao aur usse evaluate karo — SQL parsers, template engines.
+
+
+
+
+
